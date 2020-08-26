@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="file">
+  <img id="img" src="" width="400">
+  <script>
+    document.getElementById('file').addEventListener('change',(e)=>{
+      console.log(e.target.files);
+      const file = e.target.files[0];
+      const URL = window.URL;
+      const objFile = URL.createObjectURL(file)
+      let image = document.getElementById('img');
+      image.setAttribute("src",objFile);
+      image.onload = function() {
+        URL.revokeObjectURL(objFile)  //释放对象
+      }
+      console.log(objFile);
+      let cur = 0, size = 1024*100;
+      const fileChunkLists = [];
+      console.log('fileChunkLists: ', fileChunkLists);
+      //循环分片
+      while (cur < file.size){
+        fileChunkLists.push({
+          file:file.slice(cur,cur+size)
+        })
+        cur+=size;
+      }
+      for(var i=0;i<fileChunkLists.length;i++){
+        
+      }
+    })
+  </script>
+</body>
+</html>
