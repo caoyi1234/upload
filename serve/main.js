@@ -12,7 +12,6 @@ app.all('*',(req,res)=>{
 })
 server.on('request',(req,res)=>{
   console.log('接收到请求');
-  console.log(req.id);
   res.write("hello");
 })
 server.listen(3000,()=>{

@@ -1,6 +1,5 @@
 const path = require("path");
 const fse = require("fs-extra");
-const { WriteStream } = require("fs-extra");
 const { resolve } = require("path");
 // const UPLOAD_DIR = path.resolve(__dirname,'./target');//当前目录下的target
 // const UPLOAD_DIR = path.resolve(__dirname,'target');//当前目录下的target        //三种方式
